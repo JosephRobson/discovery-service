@@ -1,0 +1,26 @@
+{
+  "name": "discovery_service",
+  "version": "1.0.0",
+  "main": "out/app.js",
+  "scripts": {
+    "start": "npm run clean && npm run compile && node ./out/app.js",
+    "dev": "npm run clean && tsc -w",
+    "lint": "eslint --ext=.js,.ts --cache .",
+    "test": "NODE_ENV=test mocha",
+    "clean": "tsc -b --clean",
+    "compile": "tsc -b",
+    "changelog": "node ./changelog",
+    "preversion": "npm run compile && npm run lint && npm run test",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "postversion": "npm publish --access public && git push origin main --tags"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "eslint": "^8.13.0",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
