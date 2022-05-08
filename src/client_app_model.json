@@ -1,0 +1,5 @@
+{
+    "id"      : Joi.string(),
+    "group"   : Joi.string(),
+    "meta"    : string,
+}
